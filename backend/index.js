@@ -7,21 +7,15 @@ import dotenv from 'dotenv';
 const app = express();
 
 // app.use(express.json());
-
-
-
 // dotenv.config();
 // const DB_HOST = process.env.DB_HOST;
 // const DB_USERNAME = process.env.DB_USERNAME;
 // const DB_PASSWORD = process.env.DB_PASSWORD;
 // const DB_DBNAME = process.env.DB_DBNAME;
 // const DB_PORT = process.env.DB_PORT;
-
-
-
-const con = mysql2.createConnection({
-    host:DB_HOST, port:DB_PORT, user:DB_USERNAME , password:DB_PASSWORD ,database:DB_DBNAME
-})
+// const con = mysql2.createConnection({
+//     host:DB_HOST, port:DB_PORT, user:DB_USERNAME , password:DB_PASSWORD ,database:DB_DBNAME
+// })
 
 const PORT = 3000
 
