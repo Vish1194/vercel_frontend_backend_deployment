@@ -6,16 +6,19 @@ import dotenv from 'dotenv';
 
 const app = express();
 
-// app.use(express.json());
-// dotenv.config();
-// const DB_HOST = process.env.DB_HOST;
-// const DB_USERNAME = process.env.DB_USERNAME;
-// const DB_PASSWORD = process.env.DB_PASSWORD;
-// const DB_DBNAME = process.env.DB_DBNAME;
-// const DB_PORT = process.env.DB_PORT;
-// const con = mysql2.createConnection({
-//     host:DB_HOST, port:DB_PORT, user:DB_USERNAME , password:DB_PASSWORD ,database:DB_DBNAME
-// })
+app.use(express.json());
+
+dotenv.config();
+
+const DB_HOST = process.env.DB_HOST;
+const DB_USERNAME = process.env.DB_USERNAME;
+const DB_PASSWORD = process.env.DB_PASSWORD;
+const DB_DBNAME = process.env.DB_DBNAME;
+const DB_PORT = process.env.DB_PORT;
+
+const con = mysql2.createConnection({
+    host:DB_HOST, port:DB_PORT, user:DB_USERNAME , password:DB_PASSWORD ,database:DB_DBNAME
+})
 
 const PORT = 3000
 
@@ -35,19 +38,19 @@ app.post('/hi',(req,res)=>{
     res.send('Yup Login');
 });
 
-// app.post('/login',async (req,res)=>{
-//     const {email,password} = req.body;
-//     try {
-//         const [row] =await (await con).query('select * from user where email=? and password =?',[email,password]);
-//         if(row.length>0){
-//             res.status(200).send({"id":row[0].id, "fname":row[0].fname, "lname":row[0].lname, "email":row[0].email,});
-//         }
-//     } catch (error) {
-//         if(error){
-//             res.status(404).send('Unsuccessful Login attempt.');
-//         }
-//     }
-// })
+app.post('/login',async (req,res)=>{
+    const {email,password} = req.body;
+    try {
+        const [row] =await (await con).query('select * from user where email=? and password =?',[email,password]);
+        if(row.length>0){
+            res.status(200).send({"id":row[0].id, "fname":row[0].fname, "lname":row[0].lname, "email":row[0].email,});
+        }
+    } catch (error) {
+        if(error){
+            res.status(404).send('Unsuccessful Login attempt.');
+        }
+    }
+})
 
 
 // app.post('/registerUser', async (req,res)=>{
