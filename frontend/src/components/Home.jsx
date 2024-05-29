@@ -8,7 +8,7 @@ const Home1 = () => {
     useEffect(()=>{
         const getMsg = async () =>{
             try {
-                const resp = await axios.post('https://vercel-deployment-backend-gilt.vercel.app/hi');
+                const resp = await axios.post('https://vercel-backend-deployment.vercel.app/hi');
                 setMsg(resp.data);
             } catch (error) {
                 console.log(error);

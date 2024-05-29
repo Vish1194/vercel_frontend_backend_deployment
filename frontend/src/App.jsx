@@ -1,30 +1,68 @@
-import Home from "./components/Home"
-import {createBrowserRouter, RouterProvider} from 'react-router-dom'
-import LoginForm from "./components/LoginForm"
-import Dashboard from "./components/Dashboard"
-
+import Dashboard from "./components/Dashboard";
+import LoginPage from "./pages/LoginPage";
+import {createBrowserRouter, RouterProvider} from 'react-router-dom';
+import RegisterPage from "./pages/RegisterPage";
+import MainLayout from "./layout/MainLayout";
+import UserLayout from "./layout/UserLayout";
+import SellerPage from "./pages/SellerPage";
+import PropertyInfo from "./pages/PropertyInfo";
+import MyProperties from "./pages/MyProperties";
+import UpdateProperty from "./components/UpdateProperty";
+import SearchPage from "./pages/SearchPage";
 
 
 function App() {
 
-  const router = createBrowserRouter([
+  const route = createBrowserRouter([
     {
       path:'/',
-      element:<LoginForm/>
+      element:<MainLayout/>,
+      children:[
+        {
+          path:'/',
+          element:<LoginPage/>
+        },
+        {
+          path:'/register',
+          element:<RegisterPage/>
+        }
+      ]
     },
     {
       path:'/dashboard',
-      element:<Dashboard/>
-    },
-    {
-      path:'/home',
-      element:<Home/>
-    },
+      element:<UserLayout/>,
+      children:[
+        {
+          path:'/dashboard',
+          element:<Dashboard/>
+        },
+        {
+          path:'/dashboard/sell',
+          element:<SellerPage/>
+        },
+        {
+          path:'/dashboard/propertyInfo',
+          element:<PropertyInfo/>
+        },
+        {
+          path:'/dashboard/myProperties',
+          element:<MyProperties/>
+        },
+        {
+          path:'/dashboard/updateProperty',
+          element:<UpdateProperty/>
+        },
+        {
+          path:'/dashboard/search',
+          element:<SearchPage/>
+        }
+      ]
+    }
   ])
 
   return (
     <>
-      <RouterProvider router={router}/>
+      <RouterProvider router={route}/>
     </>
   )
 }

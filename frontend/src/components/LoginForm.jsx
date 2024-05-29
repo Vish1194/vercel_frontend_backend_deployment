@@ -13,7 +13,7 @@ const LoginForm = () =>{
         e.preventDefault();
         try {
             axios.defaults.withCredentials=true;
-            const response = await axios.post('https://vercel-deployment-backend-gilt.vercel.app/login',{email:email,password:password});
+            const response = await axios.post('https://vercel-backend-deployment.vercel.app/login',{email:email,password:password});
             if(response.status === 200){
                 console.log(response.data);
                 sessionStorage.setItem('id',response.data.id);
