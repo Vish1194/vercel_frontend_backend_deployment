@@ -25,7 +25,7 @@ const PORT = 3000
 app.listen(PORT, () => console.log(`Server ready on port ${PORT}.`));
  
 app.use(cors({
-    origin: 'https://vercel-frontend-deployment.vercel.app',
+    origin: 'https://vercel-deployment-frontend-psi.vercel.app',
     credentials: true,
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
