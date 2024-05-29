@@ -49,7 +49,7 @@ const UpdateProperty = () =>{
     }
 
     return(
-        <form onSubmit={submitSellInfo} className="my-5">
+        <form onSubmit={submitSellInfo} className="mx-lg-5 px-lg-5 my-5">
             <h3 className="text-center my-3 mx-md-3 mx-sm-3">Property Details</h3>
             <div className="mb-3">
                 <label htmlFor="exampleInputEmail1" className="form-label">Place</label>
