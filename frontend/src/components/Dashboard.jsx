@@ -42,7 +42,7 @@ const Dashboard = () =>{
                             }} className="btn btn-dark fs-5 mx-4">My Properties</button>
                     </div>
                     <hr />
-                    <form className="d-flex mx-5 px-5" role="search">
+                    <form className="d-flex mx-lg-5 mx-md-5 px-lg-5 px-md-5" role="search">
                         <input className="form-control mx-5" onChange={(e)=>{
                             setSearch(e.target.value);
                         }} value={search} type="search" placeholder="Search or filter based on Place or Price (Ex: Bengaluru or 15000)" aria-label="Search"/>

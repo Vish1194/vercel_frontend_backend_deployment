@@ -24,7 +24,7 @@ const MyProperties = () =>{
     },[])
     return(
         <>
-        <h2 className="text-center my-4">My Posted Properties</h2>
+        <h2 className="text-center my-4" style={{minHeight:"90vh"}}>My Posted Properties</h2>
             <div className="property-listing">
                 {property.map((j) => (
                     <PropertyCard key={j.property_id} isDashboard={false} id={j.property_id} place={j.place} address={j.address} bedrooms={j.bedrooms} bathroooms={j.bathroooms} amenities={j.amenities} price={j.price}/>
