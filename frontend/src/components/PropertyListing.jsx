@@ -29,5 +29,5 @@ const PropertyListing = ({user_id}) =>{
             }
         </>
     )
-}
+} 
 export default PropertyListing;
