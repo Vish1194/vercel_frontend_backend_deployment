@@ -35,13 +35,13 @@ const LoginForm = () =>{
                 <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
                 <input type="email" onChange={(e)=>{
                     setEmail(e.target.value);
-                }} value={email} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+                }} value={email} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required/>
             </div>
             <div className="mb-3">
                 <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
                 <input type="password" onChange={(e)=>{
                     setPassword(e.target.value)
-                }} value={password} className="form-control" id="exampleInputPassword1"/>
+                }} value={password} className="form-control" id="exampleInputPassword1" required/>
             </div>
             <button type="submit" className="btn btn-success w-100">Log In</button>
         </form>
