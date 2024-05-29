@@ -23,7 +23,7 @@ const PropertyListing = ({user_id}) =>{
             { propertyDetails.length>0 &&
             <div className="property-listing">
                 {propertyDetails.map((j) => (
-                    <PropertyCard key={j.property_id} id={j.property_id} place={j.place} address={j.address} bedrooms={j.bedrooms} bathroooms={j.bathroooms} amenities={j.amenities} price={j.price}/>
+                    <PropertyCard key={j.property_id} id={j.property_id} place={j.place} address={j.address} bedrooms={j.bedrooms} bathrooms={j.bathrooms} amenities={j.amenities} price={j.price}/>
                 ))}
             </div>
             }
