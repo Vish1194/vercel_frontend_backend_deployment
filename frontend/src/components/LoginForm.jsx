@@ -7,9 +7,11 @@ import {useNavigate} from 'react-router-dom'
 const LoginForm = () =>{
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [loading,setLoading] = useState(false);
 
     const navigate = useNavigate();
     const login = async (e) =>{
+        setLoading(true);
         e.preventDefault();
         try {
             axios.defaults.withCredentials=true;
@@ -20,10 +22,12 @@ const LoginForm = () =>{
                 sessionStorage.setItem('fname',response.data.fname)
                 sessionStorage.setItem('lname',response.data.lname)
                 sessionStorage.setItem('email',response.data.email)
+                setLoading(false)
                 navigate('/dashboard')
             }
         } catch (error) {
             console.log(error)
+            setLoading(false)
             alert('Incorrect Username / Password.')
         }
     }
@@ -43,7 +47,14 @@ const LoginForm = () =>{
                     setPassword(e.target.value)
                 }} value={password} className="form-control" id="exampleInputPassword1" required/>
             </div>
-            <button type="submit" className="btn btn-success w-100">Log In</button>
+            {
+                loading ? <button type="submit" className="btn btn-success w-100" disabled>
+                                <div class="spinner-border text-light" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                          </button>
+                :<button type="submit" className="btn btn-success w-100">Log In</button>
+            }
         </form>
     )
 }
